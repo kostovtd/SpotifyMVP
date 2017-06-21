@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpotifyMVP</string>
+
+
+    <!-- LOGIN SCREEN -->
+    <string name="login_screen_title">Login</string>
 </resources>
