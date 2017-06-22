@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            userPresenter.authenticate();
             }
         });
     }
