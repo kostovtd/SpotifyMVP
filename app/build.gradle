@@ -19,6 +19,14 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -32,6 +40,9 @@ dependencies {
 
     // network communication
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    // spotify auth library
+    compile(name: 'spotify-android-auth-1.0.0', ext: 'aar')
 
     testCompile 'junit:junit:4.12'
 }
