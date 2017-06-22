@@ -3,6 +3,8 @@ package com.kostovtd.spotifymvp.presenter;
 import android.content.Context;
 import android.util.Log;
 
+import com.kostovtd.spotifymvp.util.Is;
+
 /**
  * Created by kostovtd on 21.06.17.
  */
@@ -29,5 +31,11 @@ public class UserPresenterImpl implements UserPresenter {
     public void authenticate(String clientId) {
         Log.d(TAG, "authenticate: hit");
 
+    }
+
+
+    @Override
+    public boolean validateUsername(String username) {
+        return !Is.empty(username);
     }
 }

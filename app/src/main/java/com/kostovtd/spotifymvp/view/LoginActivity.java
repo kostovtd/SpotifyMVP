@@ -1,13 +1,17 @@
 package com.kostovtd.spotifymvp.view;
 
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.presenter.UserPresenter;
+import com.kostovtd.spotifymvp.presenter.UserPresenterImpl;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +22,14 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
+
+    private UserPresenter userPresenter;
+
+    @BindView(R.id.input_layout_username)
+    TextInputLayout inputLayoutUsername;
+
+    @BindView(R.id.input_username)
+    EditText inputUsername;
 
     @BindView(R.id.login_button)
     Button bLogin;
@@ -33,12 +45,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         ButterKnife.bind(this);
 
+        userPresenter = new UserPresenterImpl(this);
 
         // login button click
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Authentication clicked", Toast.LENGTH_SHORT).show();
+                String username = inputUsername.getText().toString().trim();
+                boolean isValidUsername = userPresenter.validateUsername(username);
+
+                if(isValidUsername) {
+                    userPresenter.authenticate(username);
+                } else {
+                    Toast.makeText(LoginActivity.this, getString(R.string.login_screen_invalid_username_msg), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

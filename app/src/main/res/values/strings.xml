@@ -6,4 +6,5 @@
     <string name="login_screen_title">Login</string>
     <string name="login_screen_login_button_label">Authentication</string>
     <string name="login_screen_username_hint">Username</string>
+    <string name="login_screen_invalid_username_msg">Empty username</string>
 </resources>
