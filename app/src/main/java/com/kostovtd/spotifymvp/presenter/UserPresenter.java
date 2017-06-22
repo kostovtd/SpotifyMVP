@@ -8,7 +8,6 @@ import com.kostovtd.spotifymvp.base.BasePresenter;
 
 public interface UserPresenter extends BasePresenter {
 
-    void authenticate(String clientId);
-    boolean validateUsername(String username);
+    void authenticate();
 
 }

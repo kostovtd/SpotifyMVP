@@ -25,12 +25,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private UserPresenter userPresenter;
 
-    @BindView(R.id.input_layout_username)
-    TextInputLayout inputLayoutUsername;
-
-    @BindView(R.id.input_username)
-    EditText inputUsername;
-
     @BindView(R.id.login_button)
     Button bLogin;
 
@@ -51,14 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = inputUsername.getText().toString().trim();
-                boolean isValidUsername = userPresenter.validateUsername(username);
 
-                if(isValidUsername) {
-                    userPresenter.authenticate(username);
-                } else {
-                    Toast.makeText(LoginActivity.this, getString(R.string.login_screen_invalid_username_msg), Toast.LENGTH_SHORT).show();
-                }
             }
         });
     }

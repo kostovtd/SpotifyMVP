@@ -25,17 +25,11 @@ public class UserPresenterImpl implements UserPresenter {
     /**
      * Authenticate the current user based on the given client id.
      * spotify-auth library used.
-     * @param clientId
      */
     @Override
-    public void authenticate(String clientId) {
+    public void authenticate() {
         Log.d(TAG, "authenticate: hit");
 
     }
 
-
-    @Override
-    public boolean validateUsername(String username) {
-        return !Is.empty(username);
-    }
 }
