@@ -5,4 +5,8 @@
     <!-- LOGIN SCREEN -->
     <string name="login_screen_title">Login</string>
     <string name="login_screen_login_button_label">Authentication</string>
+
+
+    <!-- MAIN SCREEN -->
+    <string name="main_screen_title">Home</string>
 </resources>
