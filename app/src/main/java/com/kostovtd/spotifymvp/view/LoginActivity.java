@@ -1,17 +1,19 @@
 package com.kostovtd.spotifymvp.view;
 
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.manager.AuthenticationManager;
 import com.kostovtd.spotifymvp.presenter.UserPresenter;
 import com.kostovtd.spotifymvp.presenter.UserPresenterImpl;
+import com.spotify.sdk.android.authentication.AuthenticationClient;
+import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,5 +71,37 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: hit");
         super.onDestroy();
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        // Check if result comes from the correct activity
+        if (requestCode == AuthenticationManager.REQUEST_CODE) {
+            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
+
+            switch (response.getType()) {
+                // Response was successful and contains auth token
+                case TOKEN:
+                    // Handle successful response
+                    Log.i(TAG, "token obtained");
+                    userPresenter.successfulAuthentication(response);
+                    break;
+
+                // Auth flow returned an error
+                case ERROR:
+                    // Handle error response
+                    Log.i(TAG, "error while obtaining a token");
+                    Toast.makeText(this, getString(R.string.login_screen_login_failed_msg), Toast.LENGTH_SHORT).show();
+                    break;
+
+                // Most likely auth flow was cancelled
+                default:
+                    // Handle other cases
+                    Log.i(TAG, "error while obtaining a token");
+                    Toast.makeText(this, getString(R.string.login_screen_login_failed_msg), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
