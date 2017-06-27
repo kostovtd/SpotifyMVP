@@ -3,9 +3,13 @@ package com.kostovtd.spotifymvp.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -14,6 +18,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    @BindView(R.id.view_profile_button)
+    Button bViewProfile;
 
 
     @Override
@@ -24,6 +31,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setTitle(R.string.main_screen_title);
 
         ButterKnife.bind(this);
+
+
+        bViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
