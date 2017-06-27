@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.presenter.MainPresenter;
+import com.kostovtd.spotifymvp.presenter.MainPresenterImpl;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +20,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private MainPresenter presenter;
 
     @BindView(R.id.view_profile_button)
     Button bViewProfile;
@@ -32,11 +36,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         ButterKnife.bind(this);
 
+        presenter = new MainPresenterImpl(this);
 
         bViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
+                presenter.viewProfile();
             }
         });
     }

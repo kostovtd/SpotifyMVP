@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.kostovtd.spotifymvp.interactor.UserInteractor;
+import com.kostovtd.spotifymvp.interactor.UserResponseHandler;
 import com.kostovtd.spotifymvp.model.AccessToken;
 import com.kostovtd.spotifymvp.model.User;
+import com.kostovtd.spotifymvp.model.UserProfileResponse;
 
 /**
  * Created by kostovtd on 23.06.17.
@@ -87,5 +90,36 @@ public class UserManager {
 
 
         return null;
+    }
+
+
+    public void fetchUserData() {
+        Log.d(TAG, "fetchUserData: hit");
+
+        User user = getUserData();
+
+        if(user != null) {
+            UserInteractor userInteractor = new UserInteractor();
+
+            userInteractor.setResponseHandler(new UserResponseHandler() {
+                @Override
+                public void onUserProfileDataFetchedSuccessfully(UserProfileResponse userProfileResponse) {
+
+                }
+
+                @Override
+                public void onErrorReceived(int errorCode) {
+
+                }
+
+                @Override
+                public void onMaxRetryReached() {
+
+                }
+            });
+
+            String accessToken = user.getAccessToken().getToken();
+            userInteractor.fetchUserProfileData(accessToken);
+        }
     }
 }

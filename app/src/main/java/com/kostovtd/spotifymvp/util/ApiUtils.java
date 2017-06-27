@@ -9,6 +9,8 @@ import com.kostovtd.spotifymvp.network.SpotifyAPI;
 
 public class ApiUtils {
 
+    public static final String AUTHORIZATION_WORD = "Bearer";
+    public static final int MAX_RETRY = 3;
     private static final String BASE_URL = "https://api.spotify.com";
 
 
