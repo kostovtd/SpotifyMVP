@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.manager.AuthenticationManager;
-import com.kostovtd.spotifymvp.presenter.UserPresenter;
-import com.kostovtd.spotifymvp.presenter.UserPresenterImpl;
+import com.kostovtd.spotifymvp.presenter.LoginPresenter;
+import com.kostovtd.spotifymvp.presenter.LoginPresenterImpl;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
-    private UserPresenter userPresenter;
+    private LoginPresenter loginPresenter;
 
     @BindView(R.id.login_button)
     Button bLogin;
@@ -41,13 +41,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         ButterKnife.bind(this);
 
-        userPresenter = new UserPresenterImpl(this);
+        loginPresenter = new LoginPresenterImpl(this);
 
         // login button click
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            userPresenter.authenticate();
+            loginPresenter.authenticate();
             }
         });
     }
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 case TOKEN:
                     // Handle successful response
                     Log.i(TAG, "token obtained");
-                    userPresenter.successfulAuthentication(response);
+                    loginPresenter.successfulAuthentication(response);
                     break;
 
                 // Auth flow returned an error

@@ -13,15 +13,15 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
  * Created by kostovtd on 21.06.17.
  */
 
-public class UserPresenterImpl implements UserPresenter {
+public class LoginPresenterImpl implements LoginPresenter {
 
-    private static final String TAG = UserPresenterImpl.class.getSimpleName();
+    private static final String TAG = LoginPresenterImpl.class.getSimpleName();
 
 
     private Context context;
 
 
-    public UserPresenterImpl(Context context) {
+    public LoginPresenterImpl(Context context) {
         this.context = context;
     }
 

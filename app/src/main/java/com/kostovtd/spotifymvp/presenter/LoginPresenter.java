@@ -7,7 +7,7 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
  * Created by kostovtd on 21.06.17.
  */
 
-public interface UserPresenter extends BasePresenter {
+public interface LoginPresenter extends BasePresenter {
 
     void authenticate();
     void successfulAuthentication(AuthenticationResponse response);
