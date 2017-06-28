@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.kostovtd.spotifymvp.manager.UserManager;
 import com.kostovtd.spotifymvp.manager.UserManagerListener;
-import com.kostovtd.spotifymvp.model.User;
 import com.kostovtd.spotifymvp.model.UserProfile;
 import com.kostovtd.spotifymvp.view.ProfileView;
 

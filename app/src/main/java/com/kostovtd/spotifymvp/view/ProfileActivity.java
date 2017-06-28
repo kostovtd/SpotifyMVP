@@ -1,7 +1,7 @@
 package com.kostovtd.spotifymvp.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.kostovtd.spotifymvp.R;
