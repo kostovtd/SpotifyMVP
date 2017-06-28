@@ -7,4 +7,6 @@ import com.kostovtd.spotifymvp.base.BaseView;
  */
 
 public interface MainView extends BaseView {
+
+
 }

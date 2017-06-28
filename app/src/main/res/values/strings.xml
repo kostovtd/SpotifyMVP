@@ -11,4 +11,8 @@
     <!-- MAIN SCREEN -->
     <string name="main_screen_title">Home</string>
     <string name="view_profile_label">View Profile</string>
+
+
+    <!-- PROFILE SCREEN -->
+    <string name="profile_screen_title">Profile</string>
 </resources>

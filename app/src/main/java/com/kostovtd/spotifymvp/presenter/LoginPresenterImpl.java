@@ -50,8 +50,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             boolean userSaved = userManager.saveUserData(user);
 
             if(userSaved) {
-                ScreenManager screenManager = new ScreenManager(context);
-                screenManager.navigateToMainScreen();
+                ScreenManager.navigateToMainScreen(context);
             } else {
                 Log.e(TAG, "successfulAuthentication: user not saved");
             }

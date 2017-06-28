@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.presenter.MainPresenter;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         bViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.viewProfile();
+                presenter.navigateToProfileScreen();
             }
         });
     }

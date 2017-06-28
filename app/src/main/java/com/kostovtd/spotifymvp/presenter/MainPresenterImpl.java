@@ -3,7 +3,11 @@ package com.kostovtd.spotifymvp.presenter;
 import android.content.Context;
 import android.util.Log;
 
+import com.kostovtd.spotifymvp.manager.ScreenManager;
 import com.kostovtd.spotifymvp.manager.UserManager;
+import com.kostovtd.spotifymvp.manager.UserManagerListener;
+import com.kostovtd.spotifymvp.model.UserProfile;
+import com.kostovtd.spotifymvp.view.MainView;
 
 /**
  * Created by kostovtd on 27.06.17.
@@ -23,15 +27,14 @@ public class MainPresenterImpl implements MainPresenter {
 
 
     @Override
-    public void viewProfile() {
-        Log.d(TAG, "viewProfile: hit");
+    public void navigateToProfileScreen() {
+        Log.d(TAG, "navigateToProfileScreen: hit");
 
         if(context == null) {
-            Log.e(TAG, "viewProfile: context is NULL");
+            Log.e(TAG, "navigateToProfileScreen: context is NULL");
             return;
         }
 
-        UserManager userManager = new UserManager(context);
-        userManager.getUserData();
+        ScreenManager.navigateToProfileScreen(context);
     }
 }

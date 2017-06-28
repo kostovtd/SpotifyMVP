@@ -2,7 +2,7 @@ package com.kostovtd.spotifymvp.interactor;
 
 import android.util.Log;
 
-import com.kostovtd.spotifymvp.model.UserProfileResponse;
+import com.kostovtd.spotifymvp.model.UserProfile;
 import com.kostovtd.spotifymvp.network.SpotifyAPI;
 import com.kostovtd.spotifymvp.util.ApiUtils;
 import com.kostovtd.spotifymvp.util.Is;
@@ -47,14 +47,14 @@ public class UserInteractor {
         String accessBearerToken = ApiUtils.AUTHORIZATION_WORD + " " +accessToken;
         SpotifyAPI spotifyAPI = ApiUtils.getSpotifyAPI();
 
-        spotifyAPI.getProfileData(accessBearerToken).enqueue(new Callback<UserProfileResponse>() {
+        spotifyAPI.getProfileData(accessBearerToken).enqueue(new Callback<UserProfile>() {
             int retry = 0;
 
             @Override
-            public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
+            public void onResponse(Call<UserProfile> call, Response<UserProfile> response) {
                 if(response.isSuccessful()) {
-                    UserProfileResponse userProfileResponse = response.body();
-                    responseHandler.onUserProfileDataFetchedSuccessfully(userProfileResponse);
+                    UserProfile userProfile = response.body();
+                    responseHandler.onUserProfileDataFetchedSuccessfully(userProfile);
                 } else {
                     int errorCode = response.code();
                     responseHandler.onErrorReceived(errorCode);
@@ -62,7 +62,7 @@ public class UserInteractor {
             }
 
             @Override
-            public void onFailure(Call<UserProfileResponse> call, Throwable t) {
+            public void onFailure(Call<UserProfile> call, Throwable t) {
                 if(retry < ApiUtils.MAX_RETRY) {
                     retry++;
                     call.enqueue(this);

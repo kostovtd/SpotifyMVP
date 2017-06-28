@@ -8,7 +8,7 @@ import com.kostovtd.spotifymvp.interactor.UserInteractor;
 import com.kostovtd.spotifymvp.interactor.UserResponseHandler;
 import com.kostovtd.spotifymvp.model.AccessToken;
 import com.kostovtd.spotifymvp.model.User;
-import com.kostovtd.spotifymvp.model.UserProfileResponse;
+import com.kostovtd.spotifymvp.model.UserProfile;
 
 /**
  * Created by kostovtd on 23.06.17.
@@ -22,10 +22,16 @@ public class UserManager {
     private static final String EXPIRES_IN_KEY = "expires_in_key";
 
     private Context context;
+    private UserManagerListener listener;
 
 
     public UserManager(Context context) {
         this.context = context;
+    }
+
+    public UserManager(Context context, UserManagerListener listener) {
+        this.context = context;
+        this.listener = listener;
     }
 
 
@@ -103,8 +109,12 @@ public class UserManager {
 
             userInteractor.setResponseHandler(new UserResponseHandler() {
                 @Override
-                public void onUserProfileDataFetchedSuccessfully(UserProfileResponse userProfileResponse) {
-
+                public void onUserProfileDataFetchedSuccessfully(UserProfile userProfile) {
+                    if(listener != null) {
+                        listener.onUserProfileDataAvailable(userProfile);
+                    } else {
+                        Log.i(TAG, "listener is NULL");
+                    }
                 }
 
                 @Override
@@ -121,5 +131,10 @@ public class UserManager {
             String accessToken = user.getAccessToken().getToken();
             userInteractor.fetchUserProfileData(accessToken);
         }
+    }
+
+
+    public void setListener(UserManagerListener listener) {
+        this.listener = listener;
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.kostovtd.spotifymvp.view.MainActivity;
+import com.kostovtd.spotifymvp.view.ProfileActivity;
 
 /**
  * Created by kostovtd on 23.06.17.
@@ -14,19 +15,10 @@ public class ScreenManager {
 
     private static final String TAG = ScreenManager.class.getSimpleName();
 
-
-    private Context context;
-
-
-    public ScreenManager(Context context) {
-        this.context = context;
-    }
-
-
     /**
      * Navigate to {@link MainActivity}
      */
-    public void navigateToMainScreen() {
+    public static void navigateToMainScreen(Context context) {
         Log.d(TAG, "navigateToMainScreen: hit");
 
         if(context != null) {
@@ -34,6 +26,22 @@ public class ScreenManager {
             context.startActivity(intent);
         } else {
             Log.e(TAG, "navigateToMainScreen: context is NULL");
+        }
+    }
+
+
+    /**
+     * Navigate to {@link ProfileActivity}
+     * @param context
+     */
+    public static void navigateToProfileScreen(Context context) {
+        Log.d(TAG, "navigateToProfileScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, ProfileActivity.class);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToProfileScreen: context is NULL");
         }
     }
 }
