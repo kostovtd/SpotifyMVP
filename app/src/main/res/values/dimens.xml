@@ -17,7 +17,28 @@
     <dimen name="extra_large_vertical_margin">64dp</dimen>
 
 
+    <!-- HORIZONTAL PADDING -->
+    <dimen name="extra_small_horizontal_padding">4dp</dimen>
+    <dimen name="small_horizontal_padding">8dp</dimen>
+    <dimen name="horizontal_padding">16dp</dimen>
+    <dimen name="large_horizontal_padding">32dp</dimen>
+    <dimen name="extra_large_horizontal_padding">64dp</dimen>
 
+
+    <!-- VERTICAL PADDING -->
+    <dimen name="extra_small_vertical_padding">4dp</dimen>
+    <dimen name="small_vertical_padding">8dp</dimen>
+    <dimen name="vertical_padding">16dp</dimen>
+    <dimen name="large_vertical_padding">32dp</dimen>
+    <dimen name="extra_large_vertical_padding">64dp</dimen>
+
+
+    <!-- TEXT SIZES -->
+    <dimen name="extra_small_text_size">12sp</dimen>
+    <dimen name="small_text_size">14sp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="large_text_size">18sp</dimen>
+    <dimen name="extra_large_text_size">20sp</dimen>
 
     
 </resources>

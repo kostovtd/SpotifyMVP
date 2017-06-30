@@ -15,4 +15,11 @@
 
     <!-- PROFILE SCREEN -->
     <string name="profile_screen_title">Profile</string>
+    <string name="profile_birthdate_label">Birthdate:</string>
+    <string name="profile_country_label">Country:</string>
+    <string name="profile_email_label">Email:</string>
+    <string name="profile_product_label">Product:</string>
+    <string name="profile_type_label">Type:</string>
+    <string name="profile_followers_label">Followers:</string>
+    <string name="profile_id_label">Id:</string>
 </resources>

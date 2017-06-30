@@ -1,6 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/horizontal_padding"
+            android:paddingRight="@dimen/horizontal_padding"
+            android:paddingStart="@dimen/horizontal_padding"
+            android:paddingEnd="@dimen/horizontal_padding">
+
+            <!-- USER'S ID -->
+            <TextView
+                android:id="@+id/text_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:text="@string/profile_id_label"/>
+
+            <TextView
+                android:id="@+id/text_id_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:layout_toRightOf="@id/text_id_label"
+                android:layout_toEndOf="@id/text_id_label"/>
+
+
+            <!-- USER'S BIRTHDATE -->
+            <TextView
+                android:id="@+id/text_birthdate_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_id_label"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:text="@string/profile_birthdate_label"/>
+
+            <TextView
+                android:id="@+id/text_birthdate_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_id_label"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_toRightOf="@id/text_birthdate_label"
+                android:layout_toEndOf="@id/text_birthdate_label"/>
+
+
+            <!-- COUNTRY -->
+            <TextView
+                android:id="@+id/text_country_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_below="@id/text_birthdate_label"
+                android:text="@string/profile_country_label"/>
+
+            <TextView
+                android:id="@+id/text_country_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:layout_below="@id/text_birthdate_label"
+                android:layout_toRightOf="@id/text_country_label"
+                android:layout_toEndOf="@id/text_country_label"/>
+
+
+            <!-- EMAIL -->
+            <TextView
+                android:id="@+id/text_email_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_below="@id/text_country_label"
+                android:text="@string/profile_email_label"/>
+
+            <TextView
+                android:id="@+id/text_email_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:layout_below="@id/text_country_label"
+                android:layout_toRightOf="@id/text_email_label"
+                android:layout_toEndOf="@id/text_email_label"/>
+
+            <!-- PRODUCT -->
+            <TextView
+                android:id="@+id/text_product_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_below="@id/text_email_label"
+                android:text="@string/profile_product_label"/>
+
+            <TextView
+                android:id="@+id/text_product_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_email_label"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:layout_toRightOf="@id/text_product_label"
+                android:layout_toEndOf="@id/text_product_label"/>
+
+
+            <!-- FOLLOWERS -->
+            <TextView
+                android:id="@+id/text_followers_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:textSize="@dimen/extra_large_text_size"
+                android:textStyle="bold"
+                android:layout_below="@id/text_product_label"
+                android:text="@string/profile_followers_label"/>
+
+            <TextView
+                android:id="@+id/text_followers_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/extra_large_text_size"
+                android:layout_below="@id/text_product_label"
+                android:layout_marginTop="@dimen/small_vertical_margin"
+                android:layout_marginLeft="@dimen/small_horizontal_margin"
+                android:layout_marginStart="@dimen/small_horizontal_margin"
+                android:layout_toRightOf="@id/text_followers_label"
+                android:layout_toEndOf="@id/text_followers_label"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </LinearLayout>
