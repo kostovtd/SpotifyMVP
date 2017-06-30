@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.base.BaseActivity;
 import com.kostovtd.spotifymvp.manager.AuthenticationManager;
 import com.kostovtd.spotifymvp.presenter.LoginPresenter;
 import com.kostovtd.spotifymvp.presenter.LoginPresenterImpl;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by kostovtd on 21.06.17.
  */
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends BaseActivity implements LoginView {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 

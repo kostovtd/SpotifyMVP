@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.base.BaseActivity;
 import com.kostovtd.spotifymvp.model.UserProfile;
 import com.kostovtd.spotifymvp.presenter.ProfilePresenter;
 import com.kostovtd.spotifymvp.presenter.ProfilePresenterImpl;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by kostovtd on 28.06.17.
  */
-public class ProfileActivity extends AppCompatActivity implements ProfileView {
+public class ProfileActivity extends BaseActivity implements ProfileView {
 
     private static final String TAG = ProfileActivity.class.getSimpleName();
 

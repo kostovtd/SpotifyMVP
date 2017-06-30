@@ -38,6 +38,9 @@ public class ProfilePresenterImpl implements ProfilePresenter {
                 @Override
                 public void onUserProfileDataAvailable(UserProfile userProfile) {
                     Log.d(TAG, "onUserProfileDataAvailable: hit");
+
+                    profileView.hideProgressBar();
+
                     if(userProfile != null) {
                         if(profileView != null) {
                             profileView.showProfileData(userProfile);
@@ -54,6 +57,8 @@ public class ProfilePresenterImpl implements ProfilePresenter {
                     Log.d(TAG, "onError: hit");
                 }
             });
+
+            profileView.showProgressBar();
 
             // execute the network call
             userManager.fetchUserData();

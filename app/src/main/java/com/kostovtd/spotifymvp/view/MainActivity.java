@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.base.BaseActivity;
 import com.kostovtd.spotifymvp.presenter.MainPresenter;
 import com.kostovtd.spotifymvp.presenter.MainPresenterImpl;
 
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by kostovtd on 23.06.17.
  */
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
