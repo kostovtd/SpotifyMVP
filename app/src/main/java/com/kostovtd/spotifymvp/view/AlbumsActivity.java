@@ -1,11 +1,17 @@
 package com.kostovtd.spotifymvp.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.base.BaseActivity;
+import com.kostovtd.spotifymvp.presenter.AlbumsPresenter;
+import com.kostovtd.spotifymvp.presenter.AlbumsPresenterImpl;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by kostovtd on 03.07.17.
@@ -14,6 +20,14 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
 
     private static final String TAG = AlbumsActivity.class.getSimpleName();
 
+    private AlbumsPresenter presenter;
+
+    @BindView(R.id.text_no_items)
+    TextView textNoItems;
+
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +35,12 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResourceId());
         setTitle(R.string.albums_screen_title);
+
+        ButterKnife.bind(this);
+
+        presenter = new AlbumsPresenterImpl(this);
+
+
     }
 
 

@@ -1,7 +1,6 @@
 package com.kostovtd.spotifymvp.presenter;
 
 import android.content.Context;
-import android.transition.Explode;
 import android.util.Log;
 
 import com.kostovtd.spotifymvp.manager.ScreenManager;

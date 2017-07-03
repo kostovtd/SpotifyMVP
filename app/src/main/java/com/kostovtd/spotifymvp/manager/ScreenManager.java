@@ -2,7 +2,6 @@ package com.kostovtd.spotifymvp.manager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.transition.Explode;
 import android.util.Log;
 
 import com.kostovtd.spotifymvp.view.AlbumsActivity;

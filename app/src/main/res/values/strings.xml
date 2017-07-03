@@ -27,4 +27,5 @@
 
     <!-- ALBUMS SCREEN -->
     <string name="albums_screen_title">Albums</string>
+    <string name="albums_no_items_label">No albums available.</string>
 </resources>
