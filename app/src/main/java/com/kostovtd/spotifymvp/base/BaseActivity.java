@@ -1,16 +1,12 @@
 package com.kostovtd.spotifymvp.base;
 
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import com.kostovtd.spotifymvp.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by kostovtd on 30.06.17.
