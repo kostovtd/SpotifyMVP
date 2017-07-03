@@ -2,8 +2,10 @@ package com.kostovtd.spotifymvp.manager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.transition.Explode;
 import android.util.Log;
 
+import com.kostovtd.spotifymvp.view.AlbumsActivity;
 import com.kostovtd.spotifymvp.view.MainActivity;
 import com.kostovtd.spotifymvp.view.ProfileActivity;
 
@@ -42,6 +44,22 @@ public class ScreenManager {
             context.startActivity(intent);
         } else {
             Log.e(TAG, "navigateToProfileScreen: context is NULL");
+        }
+    }
+
+
+    /**
+     * Navigate to {@link AlbumsActivity}
+     * @param context
+     */
+    public static void navigateToAlbumsScreen(Context context) {
+        Log.d(TAG, "navigateToAlbumsScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, AlbumsActivity.class);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToAlbumsScreen: context is NULL");
         }
     }
 }

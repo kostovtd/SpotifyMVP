@@ -28,6 +28,8 @@
 
         <activity android:name=".view.ProfileActivity"/>
 
+        <activity android:name=".view.AlbumsActivity"/>
+
     </application>
 
 </manifest>

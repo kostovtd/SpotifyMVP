@@ -9,5 +9,5 @@ import com.kostovtd.spotifymvp.base.BasePresenter;
 public interface MainPresenter extends BasePresenter {
 
     void navigateToProfileScreen();
-
+    void navigateToAlbumsScreen();
 }

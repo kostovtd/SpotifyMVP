@@ -1,6 +1,7 @@
 package com.kostovtd.spotifymvp.presenter;
 
 import android.content.Context;
+import android.transition.Explode;
 import android.util.Log;
 
 import com.kostovtd.spotifymvp.manager.ScreenManager;
@@ -32,5 +33,18 @@ public class MainPresenterImpl implements MainPresenter {
         }
 
         ScreenManager.navigateToProfileScreen(context);
+    }
+
+
+    @Override
+    public void navigateToAlbumsScreen() {
+        Log.d(TAG, "navigateToAlbumsScreen: hit");
+
+        if(context == null) {
+            Log.e(TAG, "navigateToAlbumsScreen: context is NULL");
+            return;
+        }
+
+        ScreenManager.navigateToAlbumsScreen(context);
     }
 }

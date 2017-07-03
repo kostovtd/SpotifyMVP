@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.base.BaseActivity;
@@ -25,6 +26,9 @@ public class MainActivity extends BaseActivity implements MainView {
     @BindView(R.id.view_profile_button)
     Button bViewProfile;
 
+    @BindView(R.id.view_albums_button)
+    Button bViewAlbums;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,19 @@ public class MainActivity extends BaseActivity implements MainView {
 
         presenter = new MainPresenterImpl(this);
 
+        // VIEW PROFILE BUTTON CLICK
         bViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.navigateToProfileScreen();
+            }
+        });
+
+        // VIEW ALBUMS BUTTON CLICK
+        bViewAlbums.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.navigateToAlbumsScreen();
             }
         });
     }
