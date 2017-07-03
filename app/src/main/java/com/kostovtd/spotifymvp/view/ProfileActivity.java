@@ -1,8 +1,6 @@
 package com.kostovtd.spotifymvp.view;
 
 import android.os.Bundle;
-import android.support.v4.media.MediaMetadataCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -13,8 +11,6 @@ import com.kostovtd.spotifymvp.model.UserProfile;
 import com.kostovtd.spotifymvp.presenter.ProfilePresenter;
 import com.kostovtd.spotifymvp.presenter.ProfilePresenterImpl;
 import com.kostovtd.spotifymvp.util.Is;
-
-import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +58,7 @@ public class ProfileActivity extends BaseActivity implements ProfileView {
     TextView textFollowersLabel;
 
     @BindView(R.id.text_followers_value)
-    TextView textFollwersValue;
+    TextView textFollowersValue;
 
 
 
@@ -70,7 +66,6 @@ public class ProfileActivity extends BaseActivity implements ProfileView {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: hit");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_layout);
         setTitle(R.string.profile_screen_title);
 
         ButterKnife.bind(this);
@@ -99,6 +94,12 @@ public class ProfileActivity extends BaseActivity implements ProfileView {
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: hit");
         super.onDestroy();
+    }
+
+
+    @Override
+    protected int getLayoutResourceId() {
+        return R.layout.profile_layout;
     }
 
 
@@ -164,7 +165,7 @@ public class ProfileActivity extends BaseActivity implements ProfileView {
 
             // FOLLOWERS
             int followers = userProfile.getFollowers().getTotal();
-            textFollwersValue.setText(String.valueOf(followers));
+            textFollowersValue.setText(String.valueOf(followers));
         } else {
             Log.e(TAG, "showProfileData: userProfile is NULL");
         }

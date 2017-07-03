@@ -6,7 +6,7 @@ package com.kostovtd.spotifymvp.base;
 
 public interface BaseView {
 
-    void showProgressBar();
-    void hideProgressBar();
+    void showProgress();
+    void hideProgress();
 
 }

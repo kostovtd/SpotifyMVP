@@ -1,5 +1,6 @@
 package com.kostovtd.spotifymvp.base;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,21 +15,19 @@ import butterknife.ButterKnife;
 /**
  * Created by kostovtd on 30.06.17.
  */
-public class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
-    @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    ProgressDialog progressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: hit");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.base_layout);
-
-        ButterKnife.bind(this);
+        setContentView(getLayoutResourceId());
     }
 
 
@@ -54,13 +53,20 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
 
 
     @Override
-    public void showProgressBar() {
-        progressBar.setVisibility(View.VISIBLE);
+    public void showProgress() {
+        if (progressDialog == null || !progressDialog.isShowing()) {
+            progressDialog = ProgressDialog.show(this, getResources().getString(R.string.app_name), "");
+        }
     }
 
 
     @Override
-    public void hideProgressBar() {
-        progressBar.setVisibility(View.GONE);
+    public void hideProgress() {
+        if(progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
     }
+
+
+    protected abstract int getLayoutResourceId();
 }

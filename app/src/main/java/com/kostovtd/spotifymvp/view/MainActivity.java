@@ -31,7 +31,6 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: hit");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
         setTitle(R.string.main_screen_title);
 
         ButterKnife.bind(this);
@@ -65,5 +64,11 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: hit");
         super.onDestroy();
+    }
+
+
+    @Override
+    protected int getLayoutResourceId() {
+        return R.layout.main_activity;
     }
 }

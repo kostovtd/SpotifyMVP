@@ -39,7 +39,7 @@ public class ProfilePresenterImpl implements ProfilePresenter {
                 public void onUserProfileDataAvailable(UserProfile userProfile) {
                     Log.d(TAG, "onUserProfileDataAvailable: hit");
 
-                    profileView.hideProgressBar();
+                    profileView.hideProgress();
 
                     if(userProfile != null) {
                         if(profileView != null) {
@@ -58,7 +58,7 @@ public class ProfilePresenterImpl implements ProfilePresenter {
                 }
             });
 
-            profileView.showProgressBar();
+            profileView.showProgress();
 
             // execute the network call
             userManager.fetchUserData();

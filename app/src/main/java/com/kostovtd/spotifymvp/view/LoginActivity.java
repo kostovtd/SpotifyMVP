@@ -37,7 +37,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: hit");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
         setTitle(R.string.login_screen_title);
 
         ButterKnife.bind(this);
@@ -72,6 +71,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: hit");
         super.onDestroy();
+    }
+
+
+    @Override
+    protected int getLayoutResourceId() {
+        return R.layout.login_activity;
     }
 
 
