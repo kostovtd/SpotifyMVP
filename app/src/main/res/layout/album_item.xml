@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:weightSum="100">
+
+    <!-- ALBUM IMAGE -->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="30"/>
+
+
+    <!-- ALBUM INFO -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="60"
+        android:orientation="vertical">
+
+        <!-- ALBUM NAME -->
+        <TextView
+            android:id="@+id/text_album_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Album name"/>
+
+
+        <!-- ARTIST -->
+        <TextView
+            android:id="@+id/text_artists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2PAC, Eminem"/>
+
+
+        <!-- NUMBER OF TRACKS -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_number_of_tracks_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tracks:"/>
+
+            <TextView
+                android:id="@+id/text_number_of_tracks_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"/>
+        </LinearLayout>
+
+
+        <!-- RELEASE DATE -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_release_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Release date:"/>
+
+            <TextView
+                android:id="@+id/text_release_date_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10/10/2017"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- ALBUM POPULARITY -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
+        android:text="49"/>
+
+</LinearLayout>
