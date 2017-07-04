@@ -6,7 +6,6 @@ import android.util.Log;
 import com.kostovtd.spotifymvp.manager.AlbumsManager;
 import com.kostovtd.spotifymvp.manager.AlbumsManagerListener;
 import com.kostovtd.spotifymvp.manager.UserManager;
-import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
 import com.kostovtd.spotifymvp.model.AlbumsResponse;
 import com.kostovtd.spotifymvp.model.User;

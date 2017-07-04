@@ -1,7 +1,6 @@
 package com.kostovtd.spotifymvp.view;
 
 import com.kostovtd.spotifymvp.base.BaseView;
-import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
 
 import java.util.List;
