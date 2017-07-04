@@ -7,8 +7,11 @@ import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.base.BaseActivity;
+import com.kostovtd.spotifymvp.model.AlbumItem;
 import com.kostovtd.spotifymvp.presenter.AlbumsPresenter;
 import com.kostovtd.spotifymvp.presenter.AlbumsPresenterImpl;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,9 +41,9 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
 
         ButterKnife.bind(this);
 
-        presenter = new AlbumsPresenterImpl(this);
+        presenter = new AlbumsPresenterImpl(this, this);
 
-
+        presenter.fetchAlbums();
     }
 
 
@@ -68,5 +71,11 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
     @Override
     protected int getLayoutResourceId() {
         return R.layout.albums_layout;
+    }
+
+
+    @Override
+    public void showAlbums(List<AlbumItem> albumItems) {
+
     }
 }

@@ -7,4 +7,7 @@ import com.kostovtd.spotifymvp.base.BasePresenter;
  */
 
 public interface AlbumsPresenter extends BasePresenter {
+
+    void fetchAlbums();
+
 }

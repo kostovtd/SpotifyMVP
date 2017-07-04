@@ -6,14 +6,14 @@ import java.util.List;
  * Created by kostovtd on 03.07.17.
  */
 
-public class AlbumResponse {
+public class AlbumsResponse {
 
     private String href;
 
     private List<AlbumItem> items;
 
 
-    public AlbumResponse(String href, List<AlbumItem> items) {
+    public AlbumsResponse(String href, List<AlbumItem> items) {
         this.href = href;
         this.items = items;
     }

@@ -22,7 +22,7 @@ public class Album {
 
     private int popularity;
 
-    private List<Track> tracks;
+    private Tracks tracks;
 
     @SerializedName("available_markets")
     private List<String> availableMarkets;
@@ -32,7 +32,7 @@ public class Album {
 
 
     public Album(String id, List<Artist> artists, List<Copyright> copyrights,
-                 List<Image> images, String name, int popularity, List<Track> tracks,
+                 List<Image> images, String name, int popularity, Tracks tracks,
                  List<String> availableMarkets, String releaseDate) {
         this.id = id;
         this.artists = artists;
@@ -94,11 +94,11 @@ public class Album {
         this.popularity = popularity;
     }
 
-    public List<Track> getTracks() {
+    public Tracks getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(Tracks tracks) {
         this.tracks = tracks;
     }
 

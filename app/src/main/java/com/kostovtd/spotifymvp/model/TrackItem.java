@@ -8,7 +8,7 @@ import java.util.List;
  * Created by kostovtd on 03.07.17.
  */
 
-public class Track {
+public class TrackItem {
 
     private List<Artist> artists;
 
@@ -27,9 +27,9 @@ public class Track {
     private long durationMs;
 
 
-    public Track(List<Artist> artists, boolean explicit,
-                 String href, String id, String name,
-                 List<String> availableMarkets, long durationMs) {
+    public TrackItem(List<Artist> artists, boolean explicit,
+                     String href, String id, String name,
+                     List<String> availableMarkets, long durationMs) {
         this.artists = artists;
         this.explicit = explicit;
         this.href = href;
