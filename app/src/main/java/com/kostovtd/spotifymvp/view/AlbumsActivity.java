@@ -6,7 +6,9 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
+import com.kostovtd.spotifymvp.adapter.AlbumsAdapter;
 import com.kostovtd.spotifymvp.base.BaseActivity;
+import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
 import com.kostovtd.spotifymvp.presenter.AlbumsPresenter;
 import com.kostovtd.spotifymvp.presenter.AlbumsPresenterImpl;
@@ -24,6 +26,7 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
     private static final String TAG = AlbumsActivity.class.getSimpleName();
 
     private AlbumsPresenter presenter;
+    private AlbumsAdapter albumsAdapter;
 
     @BindView(R.id.text_no_items)
     TextView textNoItems;
@@ -76,6 +79,12 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
 
     @Override
     public void showAlbums(List<AlbumItem> albumItems) {
-
+        Log.d(TAG, "showAlbums: hit");
+        if(albumItems == null) {
+            Log.e(TAG, "showAlbums: albumItems ");
+        }
+        if(albumsAdapter == null) {
+            albumsAdapter = new AlbumsAdapter(this, null);
+        }
     }
 }
