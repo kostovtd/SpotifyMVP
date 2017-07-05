@@ -28,4 +28,6 @@
     <!-- ALBUMS SCREEN -->
     <string name="albums_screen_title">Albums</string>
     <string name="albums_no_items_label">No albums available.</string>
+    <string name="album_number_of_tracks_label">Tracks:</string>
+    <string name="album_release_date_label">Release date:</string>
 </resources>
