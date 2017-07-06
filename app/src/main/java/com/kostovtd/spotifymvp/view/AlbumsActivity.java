@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
@@ -81,10 +82,14 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
     @Override
     public void showAlbums(List<AlbumItem> albumItems) {
         Log.d(TAG, "showAlbums: hit");
-        if(albumItems == null) {
+        if(albumItems == null || albumItems.size() == 0) {
             Log.e(TAG, "showAlbums: albumItems is NULL");
+            textNoItems.setVisibility(View.VISIBLE);
             return;
+        } else {
+            textNoItems.setVisibility(View.GONE);
         }
+
 
         if(albumsAdapter == null) {
             albumsAdapter = new AlbumsAdapter(this, albumItems);

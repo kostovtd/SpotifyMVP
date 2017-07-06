@@ -15,9 +15,11 @@ import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
 import com.kostovtd.spotifymvp.model.Artist;
+import com.kostovtd.spotifymvp.model.Image;
 import com.kostovtd.spotifymvp.model.TrackItem;
 import com.kostovtd.spotifymvp.model.Tracks;
 import com.kostovtd.spotifymvp.util.Is;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -115,6 +117,17 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
         // POPULARITY
         int popularity = album.getPopularity();
         holder.textAlbumPopularity.setText(String.valueOf(popularity));
+
+        // ALBUM IMAGE
+        List<Image> images = album.getImages();
+        if(images != null && images.size() > 0) {
+            Image image = images.get(0);
+            String imageUrl = image.getUrl();
+            Picasso.with(mContext)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.ic_image_grey_36dp)
+                    .into(holder.imageAlbum);
+        }
     }
 
 
