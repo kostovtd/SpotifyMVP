@@ -21,6 +21,7 @@ import com.kostovtd.spotifymvp.util.Is;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,9 +33,14 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
     private List<Album> mData;
 
 
-    public AlbumsAdapter(Context context, List<Album> data) {
+    public AlbumsAdapter(Context context, List<AlbumItem> data) {
         this.mContext = context;
-        this.mData = data;
+        this.mData = new ArrayList<>();
+
+        for(AlbumItem albumItem : data) {
+            Album album = albumItem.getAlbum();
+            mData.add(album);
+        }
     }
 
 
@@ -72,7 +78,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
         if(artists != null) {
             String artistsStr = "";
             for(Artist artist : artists) {
-                artistsStr += ", " + artist.getName();
+                if(Is.empty(artistsStr)) {
+                    artistsStr += artist.getName();
+                } else {
+                    artistsStr += ", " + artist.getName();
+                }
             }
 
             holder.textArtists.setText(artistsStr);
@@ -111,6 +121,19 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+
+    public void setAlbums(List<AlbumItem> albumItems) {
+        if(albumItems == null) {
+            Log.e(TAG, "setAlbums: albumItems is NULL");
+            return;
+        }
+
+        for(AlbumItem albumItem : albumItems) {
+            Album album = albumItem.getAlbum();
+            this.mData.add(album);
+        }
     }
 
 
