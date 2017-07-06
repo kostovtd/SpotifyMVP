@@ -48,5 +48,8 @@ dependencies {
     // spotify auth library
     compile(name: 'spotify-android-auth-1.0.0', ext: 'aar')
 
+    // image processing library
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
     testCompile 'junit:junit:4.12'
 }
