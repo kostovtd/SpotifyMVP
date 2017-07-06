@@ -9,6 +9,7 @@ import com.kostovtd.spotifymvp.interactor.UserResponseHandler;
 import com.kostovtd.spotifymvp.model.AccessToken;
 import com.kostovtd.spotifymvp.model.User;
 import com.kostovtd.spotifymvp.model.UserProfile;
+import com.kostovtd.spotifymvp.util.KeyUtils;
 
 /**
  * Created by kostovtd on 23.06.17.
@@ -18,8 +19,6 @@ public class UserManager {
 
     private static final String TAG = UserManager.class.getSimpleName();
     private static final String SHARED_PREFERENCES_NAME = "com.kostovtd.spotifymvp";
-    private static final String ACCESS_TOKEN_KEY = "access_token_key";
-    private static final String EXPIRES_IN_KEY = "expires_in_key";
 
     private Context context;
     private UserManagerListener listener;
@@ -49,8 +48,8 @@ public class UserManager {
                     SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME,
                             Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(ACCESS_TOKEN_KEY, user.getAccessToken().getToken());
-                    editor.putInt(EXPIRES_IN_KEY, user.getAccessToken().getExpiresIn());
+                    editor.putString(KeyUtils.ACCESS_TOKEN_KEY, user.getAccessToken().getToken());
+                    editor.putInt(KeyUtils.EXPIRES_IN_KEY, user.getAccessToken().getExpiresIn());
                     editor.apply();
                     return true;
                 } else {
@@ -79,11 +78,11 @@ public class UserManager {
             SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME,
                     Context.MODE_PRIVATE);
 
-            boolean hasSavedAccessToken = sharedPreferences.contains(ACCESS_TOKEN_KEY);
-            boolean hasSavedExpiresIn = sharedPreferences.contains(EXPIRES_IN_KEY);
+            boolean hasSavedAccessToken = sharedPreferences.contains(KeyUtils.ACCESS_TOKEN_KEY);
+            boolean hasSavedExpiresIn = sharedPreferences.contains(KeyUtils.EXPIRES_IN_KEY);
             if(hasSavedAccessToken && hasSavedExpiresIn) {
-                String accessTokenStr = sharedPreferences.getString(ACCESS_TOKEN_KEY, "");
-                int expiresIn = sharedPreferences.getInt(EXPIRES_IN_KEY, 0);
+                String accessTokenStr = sharedPreferences.getString(KeyUtils.ACCESS_TOKEN_KEY, "");
+                int expiresIn = sharedPreferences.getInt(KeyUtils.EXPIRES_IN_KEY, 0);
                 AccessToken accessToken = new AccessToken(accessTokenStr, expiresIn);
 
                 return new User(accessToken);

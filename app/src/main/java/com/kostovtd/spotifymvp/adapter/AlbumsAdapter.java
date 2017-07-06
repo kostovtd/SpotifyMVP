@@ -21,8 +21,6 @@ import com.kostovtd.spotifymvp.model.Tracks;
 import com.kostovtd.spotifymvp.util.Is;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
