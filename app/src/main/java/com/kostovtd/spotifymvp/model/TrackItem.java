@@ -1,5 +1,8 @@
 package com.kostovtd.spotifymvp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -8,7 +11,7 @@ import java.util.List;
  * Created by kostovtd on 03.07.17.
  */
 
-public class TrackItem {
+public class TrackItem implements Parcelable {
 
     private List<Artist> artists;
 
@@ -95,4 +98,43 @@ public class TrackItem {
     public void setDurationMs(long durationMs) {
         this.durationMs = durationMs;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(this.artists);
+        dest.writeByte(this.explicit ? (byte) 1 : (byte) 0);
+        dest.writeString(this.href);
+        dest.writeString(this.id);
+        dest.writeString(this.name);
+        dest.writeStringList(this.availableMarkets);
+        dest.writeLong(this.durationMs);
+    }
+
+    protected TrackItem(Parcel in) {
+        this.artists = in.createTypedArrayList(Artist.CREATOR);
+        this.explicit = in.readByte() != 0;
+        this.href = in.readString();
+        this.id = in.readString();
+        this.name = in.readString();
+        this.availableMarkets = in.createStringArrayList();
+        this.durationMs = in.readLong();
+    }
+
+    public static final Parcelable.Creator<TrackItem> CREATOR = new Parcelable.Creator<TrackItem>() {
+        @Override
+        public TrackItem createFromParcel(Parcel source) {
+            return new TrackItem(source);
+        }
+
+        @Override
+        public TrackItem[] newArray(int size) {
+            return new TrackItem[size];
+        }
+    };
 }

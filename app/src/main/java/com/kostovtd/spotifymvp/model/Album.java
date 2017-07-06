@@ -1,14 +1,18 @@
 package com.kostovtd.spotifymvp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by kostovtd on 03.07.17.
  */
 
-public class Album {
+public class Album implements Parcelable {
 
     private String id;
 
@@ -117,4 +121,50 @@ public class Album {
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeList(this.artists);
+        dest.writeList(this.copyrights);
+        dest.writeList(this.images);
+        dest.writeString(this.name);
+        dest.writeInt(this.popularity);
+        dest.writeParcelable(this.tracks, flags);
+        dest.writeStringList(this.availableMarkets);
+        dest.writeString(this.releaseDate);
+    }
+
+    protected Album(Parcel in) {
+        this.id = in.readString();
+        this.artists = new ArrayList<Artist>();
+        in.readList(this.artists, Artist.class.getClassLoader());
+        this.copyrights = new ArrayList<Copyright>();
+        in.readList(this.copyrights, Copyright.class.getClassLoader());
+        this.images = new ArrayList<Image>();
+        in.readList(this.images, Image.class.getClassLoader());
+        this.name = in.readString();
+        this.popularity = in.readInt();
+        this.tracks = in.readParcelable(Tracks.class.getClassLoader());
+        this.availableMarkets = in.createStringArrayList();
+        this.releaseDate = in.readString();
+    }
+
+    public static final Parcelable.Creator<Album> CREATOR = new Parcelable.Creator<Album>() {
+        @Override
+        public Album createFromParcel(Parcel source) {
+            return new Album(source);
+        }
+
+        @Override
+        public Album[] newArray(int size) {
+            return new Album[size];
+        }
+    };
 }

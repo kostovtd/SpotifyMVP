@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.view.AlbumsActivity;
 import com.kostovtd.spotifymvp.view.MainActivity;
 import com.kostovtd.spotifymvp.view.ProfileActivity;
+import com.kostovtd.spotifymvp.view.SongsActivity;
 
 /**
  * Created by kostovtd on 23.06.17.
@@ -59,6 +61,41 @@ public class ScreenManager {
             context.startActivity(intent);
         } else {
             Log.e(TAG, "navigateToAlbumsScreen: context is NULL");
+        }
+    }
+
+
+    /**
+     * Navigate to {@link SongsActivity}
+     * @param context
+     */
+    public static void navigateToSongsScreen(Context context) {
+        Log.d(TAG, "navigateToSongsScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, SongsActivity.class);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToSongsScreen: context is NULL");
+        }
+    }
+
+
+    /**
+     * Navigate to {@link SongsActivity}
+     * @param context
+     * @param album
+     * @param key
+     */
+    public static void navigateToSongsScreen(Context context, Album album, String key) {
+        Log.d(TAG, "navigateToSongsScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, SongsActivity.class);
+            intent.putExtra(key, album);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToSongsScreen: context is NULL");
         }
     }
 }

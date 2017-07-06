@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
 import com.kostovtd.spotifymvp.adapter.AlbumsAdapter;
+import com.kostovtd.spotifymvp.adapter.AlbumsAdapterListener;
 import com.kostovtd.spotifymvp.base.BaseActivity;
 import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
@@ -23,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by kostovtd on 03.07.17.
  */
-public class AlbumsActivity extends BaseActivity implements AlbumsView {
+public class AlbumsActivity extends BaseActivity implements AlbumsView, AlbumsAdapterListener {
 
     private static final String TAG = AlbumsActivity.class.getSimpleName();
 
@@ -93,6 +94,8 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
 
         if(albumsAdapter == null) {
             albumsAdapter = new AlbumsAdapter(this, albumItems);
+            albumsAdapter.setListener(this);
+
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(albumsAdapter);
@@ -100,5 +103,18 @@ public class AlbumsActivity extends BaseActivity implements AlbumsView {
             albumsAdapter.setAlbums(albumItems);
             albumsAdapter.notifyDataSetChanged();
         }
+    }
+
+
+    @Override
+    public void onAlbumSelected(Album album) {
+        Log.d(TAG, "onAlbumSelected: hit");
+
+        if(album == null) {
+            Log.e(TAG, "onAlbumSelected: album is NULL");
+            return;
+        }
+
+        presenter.navigateToSongsScreen(album);
     }
 }

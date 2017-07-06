@@ -33,6 +33,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
 
     private Context mContext;
     private List<Album> mData;
+    private AlbumsAdapterListener listener;
 
 
     public AlbumsAdapter(Context context, List<AlbumItem> data) {
@@ -62,7 +63,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
             return;
         }
 
-        Album album = mData.get(position);
+        final Album album = mData.get(position);
 
         if(album == null) {
             Log.e(TAG, "onBindViewHolder: album on position " + position + " is NULL");
@@ -128,12 +129,27 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
                     .placeholder(R.drawable.ic_image_grey_36dp)
                     .into(holder.imageAlbum);
         }
+
+        // CLICK LISTENER
+        holder.rootContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener != null) {
+                    listener.onAlbumSelected(album);
+                }
+            }
+        });
     }
 
 
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+
+    public void setListener(AlbumsAdapterListener listener) {
+        this.listener = listener;
     }
 
 

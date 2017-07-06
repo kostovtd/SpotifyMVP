@@ -5,11 +5,14 @@ import android.util.Log;
 
 import com.kostovtd.spotifymvp.manager.AlbumsManager;
 import com.kostovtd.spotifymvp.manager.AlbumsManagerListener;
+import com.kostovtd.spotifymvp.manager.ScreenManager;
 import com.kostovtd.spotifymvp.manager.UserManager;
+import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.AlbumItem;
 import com.kostovtd.spotifymvp.model.AlbumsResponse;
 import com.kostovtd.spotifymvp.model.User;
 import com.kostovtd.spotifymvp.util.Is;
+import com.kostovtd.spotifymvp.util.KeyUtils;
 import com.kostovtd.spotifymvp.view.AlbumsView;
 
 import java.util.List;
@@ -75,5 +78,18 @@ public class AlbumsPresenterImpl implements AlbumsPresenter {
 
         albumsView.showProgress();
         albumsManager.fetchAlbums(accessToken);
+    }
+
+
+    @Override
+    public void navigateToSongsScreen(Album album) {
+        Log.d(TAG, "navigateToSongsScreen: hit");
+
+        if(album == null) {
+            Log.e(TAG, "navigateToSongsScreen: album is NULL");
+            return;
+        }
+
+        ScreenManager.navigateToSongsScreen(context, album, KeyUtils.SELECTED_ALBUM_KEY);
     }
 }
