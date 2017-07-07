@@ -34,4 +34,6 @@
 
     <!-- SONGS SCREEN -->
     <string name="songs_screen_title">Songs</string>
+    <string name="song_duration_label">Duration:</string>
+    <string name="song_explicit_label">Explicit</string>
 </resources>
