@@ -28,6 +28,9 @@ public class MainActivity extends BaseActivity implements MainView {
     @BindView(R.id.view_albums_button)
     Button bViewAlbums;
 
+    @BindView(R.id.view_categories_button)
+    Button bViewCategories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,14 @@ public class MainActivity extends BaseActivity implements MainView {
             @Override
             public void onClick(View v) {
                 presenter.navigateToAlbumsScreen();
+            }
+        });
+
+        // VIEW CATEGORIES BUTTON CLICK
+        bViewCategories.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.navigateToCategoriesScreen();
             }
         });
     }

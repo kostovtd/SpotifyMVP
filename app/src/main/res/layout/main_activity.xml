@@ -16,10 +16,21 @@
         />
 
 
+    <!-- VIEW ALBUMS BUTTON -->
     <Button
         android:id="@+id/view_albums_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/vertical_margin"
         android:text="@string/view_albums_label" />
+
+
+    <!-- VIEW CATEGORIES BUTTON -->
+    <Button
+        android:id="@+id/view_categories_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:text="@string/view_categories_label"/>
+
 </LinearLayout>

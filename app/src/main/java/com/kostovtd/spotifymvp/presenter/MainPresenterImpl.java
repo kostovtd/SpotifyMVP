@@ -46,4 +46,17 @@ public class MainPresenterImpl implements MainPresenter {
 
         ScreenManager.navigateToAlbumsScreen(context);
     }
+
+
+    @Override
+    public void navigateToCategoriesScreen() {
+        Log.d(TAG, "navigateToCategoriesScreen: hit");
+
+        if(context == null) {
+            Log.e(TAG, "navigateToCategoriesScreen: context is NULL");
+            return;
+        }
+
+        ScreenManager.navigateToCategoriesScreen(context);
+    }
 }

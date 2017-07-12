@@ -10,4 +10,5 @@ public interface MainPresenter extends BasePresenter {
 
     void navigateToProfileScreen();
     void navigateToAlbumsScreen();
+    void navigateToCategoriesScreen();
 }

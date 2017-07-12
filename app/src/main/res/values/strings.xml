@@ -12,6 +12,7 @@
     <string name="main_screen_title">Home</string>
     <string name="view_profile_label">View Profile</string>
     <string name="view_albums_label">View Albums</string>
+    <string name="view_categories_label">View Categories</string>
 
 
     <!-- PROFILE SCREEN -->
@@ -36,4 +37,8 @@
     <string name="songs_screen_title">Songs</string>
     <string name="song_duration_label">Duration:</string>
     <string name="song_explicit_label">Explicit</string>
+
+
+    <!-- CATEGORIES SCREEN -->
+    <string name="categories_screen_title">Categories</string>
 </resources>

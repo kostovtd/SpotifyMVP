@@ -32,6 +32,8 @@
 
         <activity android:name=".view.SongsActivity"/>
 
+        <activity android:name=".view.CategoriesActivity"/>
+
     </application>
 
 </manifest>

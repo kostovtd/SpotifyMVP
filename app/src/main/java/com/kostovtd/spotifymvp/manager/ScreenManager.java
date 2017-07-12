@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.view.AlbumsActivity;
+import com.kostovtd.spotifymvp.view.CategoriesActivity;
 import com.kostovtd.spotifymvp.view.MainActivity;
 import com.kostovtd.spotifymvp.view.ProfileActivity;
 import com.kostovtd.spotifymvp.view.SongsActivity;
@@ -96,6 +97,22 @@ public class ScreenManager {
             context.startActivity(intent);
         } else {
             Log.e(TAG, "navigateToSongsScreen: context is NULL");
+        }
+    }
+
+
+    /**
+     * Navigate to {@link CategoriesActivity}
+     * @param context
+     */
+    public static void navigateToCategoriesScreen(Context context) {
+        Log.d(TAG, "navigateToCategoriesScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, CategoriesActivity.class);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToCategoriesScreen: context is NULL");
         }
     }
 }
