@@ -17,9 +17,11 @@
     <TextView
         android:id="@+id/text_category_name"
         android:textStyle="bold"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:textColor="@android:color/white"
-        android:gravity="center"/>
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/small_vertical_margin"/>
 
 </FrameLayout>
