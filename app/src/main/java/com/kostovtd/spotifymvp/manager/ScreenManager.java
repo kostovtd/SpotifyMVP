@@ -132,4 +132,23 @@ public class ScreenManager {
             Log.e(TAG, "navigateToPlaylistsScreen: context is NULL");
         }
     }
+
+
+    /**
+     * Navigate to {@link PlaylistsActivity}
+     * @param context
+     * @param categoryId
+     * @param key
+     */
+    public static void navigateToPlaylistsScreen(Context context, String categoryId, String key) {
+        Log.d(TAG, "navigateToPlaylistsScreen: hit");
+
+        if(context != null) {
+            Intent intent = new Intent(context, PlaylistsActivity.class);
+            intent.putExtra(key, categoryId);
+            context.startActivity(intent);
+        } else {
+            Log.e(TAG, "navigateToPlaylistsScreen: context is NULL");
+        }
+    }
 }

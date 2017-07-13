@@ -9,5 +9,5 @@ import com.kostovtd.spotifymvp.base.BasePresenter;
 public interface CategoriesPresenter extends BasePresenter {
 
     void fetchCategories();
-    void navigateToPlaylistsScreen();
+    void navigateToPlaylistsScreen(String categoryId);
 }

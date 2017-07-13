@@ -12,9 +12,12 @@ import com.kostovtd.spotifymvp.model.CategoriesResponse;
 import com.kostovtd.spotifymvp.model.Category;
 import com.kostovtd.spotifymvp.model.User;
 import com.kostovtd.spotifymvp.util.Is;
+import com.kostovtd.spotifymvp.util.KeyUtils;
 import com.kostovtd.spotifymvp.view.CategoriesView;
 
 import java.util.List;
+
+import javax.security.auth.login.LoginException;
 
 /**
  * Created by kostovtd on 12.07.17.
@@ -54,14 +57,14 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
         User user = userManager.getUserData();
 
         if(user == null) {
-            Log.e(TAG, "fetchAlbums: user is NULL");
+            Log.e(TAG, "fetchCategories: user is NULL");
             return;
         }
 
         String accessToken = user.getAccessToken().getToken();
 
         if(Is.empty(accessToken)) {
-            Log.e(TAG, "fetchAlbums: accessToken is NULL or EMPTY");
+            Log.e(TAG, "fetchCategories: accessToken is NULL or EMPTY");
             return;
         }
 
@@ -93,7 +96,7 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
 
 
     @Override
-    public void navigateToPlaylistsScreen() {
+    public void navigateToPlaylistsScreen(String categoryId) {
         Log.d(TAG, "navigateToPlaylistsScreen: hit");
 
         if(context == null) {
@@ -101,6 +104,12 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
             return;
         }
 
-        ScreenManager.navigateToPlaylistsScreen(context);
+        if(Is.empty(categoryId)) {
+            Log.e(TAG, "navigateToPlaylistsScreen: categoryId is NULL");
+            return;
+        }
+
+        ScreenManager.navigateToPlaylistsScreen(context, categoryId,
+                KeyUtils.SELECTED_CATEGORY_ID_KEY);
     }
 }
