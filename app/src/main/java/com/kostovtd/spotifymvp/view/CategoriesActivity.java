@@ -16,6 +16,8 @@ import com.kostovtd.spotifymvp.base.BaseActivity;
 import com.kostovtd.spotifymvp.model.Category;
 import com.kostovtd.spotifymvp.presenter.CategoriesPresenter;
 import com.kostovtd.spotifymvp.presenter.CategoriesPresenterImpl;
+import com.kostovtd.spotifymvp.util.SizeUtil;
+import com.kostovtd.spotifymvp.util.SpacesItemDecoration;
 
 import java.util.List;
 
@@ -91,6 +93,11 @@ public class CategoriesActivity extends BaseActivity implements CategoriesView, 
         if(categoriesAdapter == null) {
             categoriesAdapter = new CategoriesAdapter(this, categories);
             categoriesAdapter.setListener(this);
+
+            int rightDp = (int) SizeUtil.convertPixelsToDp(150, this);
+            int topDp = (int) SizeUtil.convertPixelsToDp(50, this);
+            int bottomDp = (int) SizeUtil.convertPixelsToDp(100, this);
+            recyclerView.addItemDecoration(new SpacesItemDecoration(0, rightDp, topDp, bottomDp));
 
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
             recyclerView.setLayoutManager(layoutManager);
