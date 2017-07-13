@@ -42,4 +42,8 @@
     <!-- CATEGORIES SCREEN -->
     <string name="categories_screen_title">Categories</string>
     <string name="categories_no_items_label">No categories available.</string>
+
+
+    <!-- PLAYLISTS SCREEN -->
+    <string name="playlists_screen_title">Playlists</string>
 </resources>

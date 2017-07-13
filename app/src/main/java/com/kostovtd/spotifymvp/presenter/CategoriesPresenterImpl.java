@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.kostovtd.spotifymvp.manager.CategoriesManager;
 import com.kostovtd.spotifymvp.manager.CategoriesManagerListener;
+import com.kostovtd.spotifymvp.manager.ScreenManager;
 import com.kostovtd.spotifymvp.manager.UserManager;
 import com.kostovtd.spotifymvp.model.Categories;
 import com.kostovtd.spotifymvp.model.CategoriesResponse;
@@ -88,5 +89,18 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
 
         categoriesView.showProgress();
         categoriesManager.fetchCategories(accessToken);
+    }
+
+
+    @Override
+    public void navigateToPlaylistsScreen() {
+        Log.d(TAG, "navigateToPlaylistsScreen: hit");
+
+        if(context == null) {
+            Log.e(TAG, "navigateToPlaylistsScreen: context is NULL");
+            return;
+        }
+
+        ScreenManager.navigateToPlaylistsScreen(context);
     }
 }

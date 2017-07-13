@@ -111,8 +111,10 @@ public class CategoriesActivity extends BaseActivity implements CategoriesView, 
 
     @Override
     public void onCategorySelected(Category category) {
-
+        Log.d(TAG, "onCategorySelected: hit");
+        presenter.navigateToPlaylistsScreen();
     }
+
 
     @Override
     protected int getLayoutResourceId() {
