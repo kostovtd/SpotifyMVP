@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.kostovtd.spotifymvp.model.CategoriesResponse;
 import com.kostovtd.spotifymvp.model.Playlists;
+import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.network.SpotifyAPI;
 import com.kostovtd.spotifymvp.util.ApiUtils;
 import com.kostovtd.spotifymvp.util.Is;
@@ -52,14 +53,14 @@ public class PlaylistsInteractor {
         String accessBearerToken = ApiUtils.AUTHORIZATION_WORD + " " + accessToken;
         SpotifyAPI spotifyAPI = ApiUtils.getSpotifyAPI();
 
-        spotifyAPI.getPlaylists(accessBearerToken, categoryId).enqueue(new Callback<Playlists>() {
+        spotifyAPI.getPlaylists(accessBearerToken, categoryId).enqueue(new Callback<PlaylistsResponse>() {
             int retry = 0;
 
             @Override
-            public void onResponse(Call<Playlists> call, Response<Playlists> response) {
+            public void onResponse(Call<PlaylistsResponse> call, Response<PlaylistsResponse> response) {
                 if(response.isSuccessful()) {
-                    Playlists playlists = response.body();
-                    responseHandler.onPlaylistsFetchedSuccessfully(playlists);
+                    PlaylistsResponse playlistsResponse = response.body();
+                    responseHandler.onPlaylistsFetchedSuccessfully(playlistsResponse);
                 } else {
                     int errorCode = response.code();
                     responseHandler.onErrorReceived(errorCode);
@@ -67,7 +68,7 @@ public class PlaylistsInteractor {
             }
 
             @Override
-            public void onFailure(Call<Playlists> call, Throwable t) {
+            public void onFailure(Call<PlaylistsResponse> call, Throwable t) {
                 if(retry < ApiUtils.MAX_RETRY) {
                     retry++;
                     call.enqueue(this);

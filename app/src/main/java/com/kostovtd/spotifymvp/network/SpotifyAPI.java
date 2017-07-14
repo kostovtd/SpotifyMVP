@@ -3,6 +3,7 @@ package com.kostovtd.spotifymvp.network;
 import com.kostovtd.spotifymvp.model.AlbumsResponse;
 import com.kostovtd.spotifymvp.model.CategoriesResponse;
 import com.kostovtd.spotifymvp.model.Playlists;
+import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.model.UserProfile;
 
 import retrofit2.Call;
@@ -26,5 +27,5 @@ public interface SpotifyAPI {
     Call<CategoriesResponse> getCategories(@Header("Authorization") String authorization);
 
     @GET("/v1/browse/categories/{id}/playlists")
-    Call<Playlists> getPlaylists(@Header("Authorization") String authorization, @Path("id") String categoryId);
+    Call<PlaylistsResponse> getPlaylists(@Header("Authorization") String authorization, @Path("id") String categoryId);
 }

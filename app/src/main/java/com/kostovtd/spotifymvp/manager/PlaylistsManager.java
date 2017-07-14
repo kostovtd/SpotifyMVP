@@ -10,6 +10,7 @@ import com.kostovtd.spotifymvp.interactor.PlaylistsResponseHandler;
 import com.kostovtd.spotifymvp.model.Categories;
 import com.kostovtd.spotifymvp.model.CategoriesResponse;
 import com.kostovtd.spotifymvp.model.Playlists;
+import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.util.Is;
 
 /**
@@ -57,13 +58,13 @@ public class PlaylistsManager {
 
         interactor.setResponseHandler(new PlaylistsResponseHandler() {
             @Override
-            public void onPlaylistsFetchedSuccessfully(Playlists playlists) {
+            public void onPlaylistsFetchedSuccessfully(PlaylistsResponse playlistsResponse) {
                 if(listener == null) {
                     Log.e(TAG, "onPlaylistsFetchedSuccessfully: listener is NULL");
                     return;
                 }
 
-                listener.onPlaylistsAvailable(playlists);
+                listener.onPlaylistsAvailable(playlistsResponse);
             }
 
             @Override

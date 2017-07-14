@@ -13,6 +13,7 @@ import com.kostovtd.spotifymvp.model.CategoriesResponse;
 import com.kostovtd.spotifymvp.model.Category;
 import com.kostovtd.spotifymvp.model.Playlist;
 import com.kostovtd.spotifymvp.model.Playlists;
+import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.model.User;
 import com.kostovtd.spotifymvp.util.Is;
 import com.kostovtd.spotifymvp.view.PlaylistsView;
@@ -77,9 +78,15 @@ public class PlaylistsPresenterImpl implements PlaylistsPresenter {
 
         playlistsManager.setListener(new PlaylistsManagerListener() {
             @Override
-            public void onPlaylistsAvailable(Playlists playlists) {
+            public void onPlaylistsAvailable(PlaylistsResponse playlistsResponse) {
                 playlistsView.hideProgress();
 
+                if(playlistsResponse == null) {
+                    Log.e(TAG, "onPlaylistsAvailable: playlistsResponse is NULL");
+                    return;
+                }
+
+                Playlists playlists = playlistsResponse.getPlaylists();
                 if(playlists == null) {
                     Log.e(TAG, "onPlaylistsAvailable: playlists is NULL");
                     return;
