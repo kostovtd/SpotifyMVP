@@ -13,6 +13,7 @@
     <string name="view_profile_label">View Profile</string>
     <string name="view_albums_label">View Albums</string>
     <string name="view_categories_label">View Categories</string>
+    <string name="main_search_action_label">Search</string>
 
 
     <!-- PROFILE SCREEN -->
