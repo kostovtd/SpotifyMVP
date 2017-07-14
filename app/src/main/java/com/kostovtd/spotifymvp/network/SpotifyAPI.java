@@ -2,7 +2,6 @@ package com.kostovtd.spotifymvp.network;
 
 import com.kostovtd.spotifymvp.model.AlbumsResponse;
 import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.model.UserProfile;
 

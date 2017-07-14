@@ -3,13 +3,8 @@ package com.kostovtd.spotifymvp.manager;
 import android.content.Context;
 import android.util.Log;
 
-import com.kostovtd.spotifymvp.interactor.CategoriesInteractor;
-import com.kostovtd.spotifymvp.interactor.CategoriesResponseHandler;
 import com.kostovtd.spotifymvp.interactor.PlaylistsInteractor;
 import com.kostovtd.spotifymvp.interactor.PlaylistsResponseHandler;
-import com.kostovtd.spotifymvp.model.Categories;
-import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.util.Is;
 
@@ -19,7 +14,7 @@ import com.kostovtd.spotifymvp.util.Is;
 
 public class PlaylistsManager {
 
-    private static final String TAG = CategoriesManager.class.getSimpleName();
+    private static final String TAG = PlaylistsManager.class.getSimpleName();
 
     private Context context;
     private PlaylistsManagerListener listener;

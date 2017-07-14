@@ -1,6 +1,5 @@
 package com.kostovtd.spotifymvp.adapter;
 
-import com.kostovtd.spotifymvp.model.Categories;
 import com.kostovtd.spotifymvp.model.Category;
 
 /**

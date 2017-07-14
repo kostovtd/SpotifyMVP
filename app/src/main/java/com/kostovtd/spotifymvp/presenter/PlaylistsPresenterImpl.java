@@ -3,14 +3,9 @@ package com.kostovtd.spotifymvp.presenter;
 import android.content.Context;
 import android.util.Log;
 
-import com.kostovtd.spotifymvp.manager.CategoriesManager;
-import com.kostovtd.spotifymvp.manager.CategoriesManagerListener;
 import com.kostovtd.spotifymvp.manager.PlaylistsManager;
 import com.kostovtd.spotifymvp.manager.PlaylistsManagerListener;
 import com.kostovtd.spotifymvp.manager.UserManager;
-import com.kostovtd.spotifymvp.model.Categories;
-import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Category;
 import com.kostovtd.spotifymvp.model.Playlist;
 import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;

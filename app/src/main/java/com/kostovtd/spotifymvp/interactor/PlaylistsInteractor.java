@@ -2,8 +2,6 @@ package com.kostovtd.spotifymvp.interactor;
 
 import android.util.Log;
 
-import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 import com.kostovtd.spotifymvp.network.SpotifyAPI;
 import com.kostovtd.spotifymvp.util.ApiUtils;

@@ -17,8 +17,6 @@ import com.kostovtd.spotifymvp.view.CategoriesView;
 
 import java.util.List;
 
-import javax.security.auth.login.LoginException;
-
 /**
  * Created by kostovtd on 12.07.17.
  */
@@ -105,7 +103,7 @@ public class CategoriesPresenterImpl implements CategoriesPresenter {
         }
 
         if(Is.empty(categoryId)) {
-            Log.e(TAG, "navigateToPlaylistsScreen: categoryId is NULL");
+            Log.e(TAG, "navigateToPlaylistsScreen: categoryId is NULL or EMPTY");
             return;
         }
 

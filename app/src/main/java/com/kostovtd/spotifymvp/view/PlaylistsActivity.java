@@ -8,12 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
-import com.kostovtd.spotifymvp.adapter.CategoriesAdapter;
-import com.kostovtd.spotifymvp.adapter.CategoriesAdapterListener;
 import com.kostovtd.spotifymvp.adapter.PlaylistsAdapter;
 import com.kostovtd.spotifymvp.adapter.PlaylistsAdapterListener;
 import com.kostovtd.spotifymvp.base.BaseActivity;
-import com.kostovtd.spotifymvp.model.Album;
 import com.kostovtd.spotifymvp.model.Playlist;
 import com.kostovtd.spotifymvp.presenter.PlaylistsPresenter;
 import com.kostovtd.spotifymvp.presenter.PlaylistsPresenterImpl;

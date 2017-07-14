@@ -1,7 +1,5 @@
 package com.kostovtd.spotifymvp.manager;
 
-import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 
 /**

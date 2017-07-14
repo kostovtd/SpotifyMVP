@@ -11,9 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kostovtd.spotifymvp.R;
-import com.kostovtd.spotifymvp.model.Album;
-import com.kostovtd.spotifymvp.model.AlbumItem;
-import com.kostovtd.spotifymvp.model.Categories;
 import com.kostovtd.spotifymvp.model.Category;
 import com.kostovtd.spotifymvp.model.Image;
 import com.kostovtd.spotifymvp.util.Is;

@@ -1,8 +1,6 @@
 package com.kostovtd.spotifymvp.interactor;
 
 import com.kostovtd.spotifymvp.base.BaseResponseHandler;
-import com.kostovtd.spotifymvp.model.CategoriesResponse;
-import com.kostovtd.spotifymvp.model.Playlists;
 import com.kostovtd.spotifymvp.model.PlaylistsResponse;
 
 /**
